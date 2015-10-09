@@ -1,0 +1,34 @@
+{
+  "name": "webpack-super-dev-server",
+  "version": "1.0.0",
+  "description": "Webpack server with Mock and Proxy support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngParty/webpack-super-dev-server.git"
+  },
+  "keywords": [
+    "webpack",
+    "dev",
+    "proxy",
+    "mock"
+  ],
+  "author": "Mario Vejlupek <mario@vejlupek.cz>",
+  "bin": {
+    "webpack-super-dev-server": "bin/webpack-super-dev-server"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngParty/webpack-super-dev-server/issues"
+  },
+  "homepage": "https://github.com/ngParty/webpack-super-dev-server#readme",
+  "dependencies": {
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0",
+    "yargs": "^3.26.0",
+    "lodash": "^3.10.1"
+  }
+}

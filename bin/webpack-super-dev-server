@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+const Server = require( '../' );
+
+const exampleText = 'webpack-super-dev-server -p 9000 --proxy http://localhost:3000 --proxyPath /api --mockConfig mockConfig1.json --mockConfig mockConfig2.json';
+const exampleWillDoText = 'Will start server on port 3000 and will proxy /api requests to http://localhost:3000 and repond with mockConfig1.json and mockConfig2.json mocks';
+
+const argv = require( 'yargs' )
+    .usage( 'Usage: $0 [options]' )
+    .option( 'config', {
+      alias: 'c',
+      describe: 'Webpack config file',
+      default: 'webpack.config.js',
+      type: 'string'
+    })
+    .option( 'contentBase', {
+      describe: 'Directory base',
+      default: 'app',
+      type: 'string'
+    })
+    .option( 'port', {
+      alias: 'p',
+      describe: 'Dev server port',
+      default: '9000',
+      type: 'string'
+    })
+    .option( 'proxy', {
+      describe: 'Proxy server target',
+      type: 'string'
+    })
+    .option( 'proxyPath', {
+      describe: 'Proxy server route match',
+      type: 'string'
+    })
+    .option( 'mockConfig', {
+      describe: 'Path to mock json config file',
+      type: 'array'
+    })
+    .implies( 'proxy', 'proxyPath' )
+    .implies( 'proxyPath', 'proxy' )
+    .example( exampleText, exampleWillDoText )
+    .help( 'help' )
+    .alias( 'help', 'h' )
+    .argv;
+
+process.title = 'webpack-super-dev-server'
+
+new Server( argv );

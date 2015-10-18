@@ -60,7 +60,7 @@ function SuperServer( options ) {
 
   }
 
-  server.listen( options.port, 'localhost' );
+  server.listen( options.port, options.host );
 
 
   /**

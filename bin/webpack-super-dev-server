@@ -2,8 +2,8 @@
 
 const Server = require( '../' );
 
-const exampleText = 'webpack-super-dev-server -p 9000 --proxy http://localhost:3000 --proxyPath /api --mockConfig mockConfig1.json --mockConfig mockConfig2.json';
-const exampleWillDoText = 'Will start server on port 3000 and will proxy /api requests to http://localhost:3000 and repond with mockConfig1.json and mockConfig2.json mocks';
+const exampleText = 'webpack-super-dev-server -p 9000 -h 0.0.0.0 --proxy http://localhost:3000 --proxyPath /api --mockConfig mockConfig1.json --mockConfig mockConfig2.json';
+const exampleWillDoText = 'Will start server on 0.0.0.0:3000 and will proxy /api requests to http://localhost:3000 and repond with mockConfig1.json and mockConfig2.json mocks';
 
 const argv = require( 'yargs' )
     .usage( 'Usage: $0 [options]' )
@@ -16,6 +16,12 @@ const argv = require( 'yargs' )
     .option( 'contentBase', {
       describe: 'Directory base',
       default: 'app',
+      type: 'string'
+    })
+    .option( 'host', {
+      alias: 'h',
+      describe: 'Dev server host ip',
+      default: 'localhost',
       type: 'string'
     })
     .option( 'port', {

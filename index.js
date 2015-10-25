@@ -1,5 +1,6 @@
 const cwd = process.cwd();
 const fs = require( 'fs' );
+const path = require( 'path' );
 const argv = require( 'yargs' );
 
 // @TODO remove lodash dependecy
@@ -100,6 +101,8 @@ function SuperServer( options ) {
    */
   function _buildMockRoutes( mockFilePath, app ) {
 
+    const rootPath = path.dirname( mockFilePath );
+
     var mock = require( cwd + '/' + mockFilePath );
 
     _.each( mock, function iterateMethods( methods, requestRoute ) {
@@ -108,9 +111,11 @@ function SuperServer( options ) {
 
         _.each( states, function iterateStates( responseContentFileName, responseState ) {
 
-          console.log( requestRoute, requestMethod, responseContentFileName, responseState );
+          const responseContentFilePath = path.join( rootPath, responseContentFileName );
 
-          app[requestMethod.toLowerCase()]( requestRoute, _mockMiddleware( responseContentFileName, responseState ) );
+          console.log( requestRoute, requestMethod, responseContentFilePath, responseState );
+
+          app[requestMethod.toLowerCase()]( requestRoute, _mockMiddleware( responseContentFilePath, responseState ) );
 
         });
 
@@ -119,6 +124,7 @@ function SuperServer( options ) {
     });
 
   }
+
 
 }
 

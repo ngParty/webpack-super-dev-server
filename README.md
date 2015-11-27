@@ -5,8 +5,7 @@ Webpack server with Mock and Proxy support
 
 ```
 Usage:
-/Users/mario/EmbedIT/ui/embedit-framework-ui/node_modules/.bin/webpack-super-dev
--server [options]
+webpack-super-dev-server [options]
 
 Options:
   --config, -c   Webpack config file     [string] [default: "webpack.config.js"]

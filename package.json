@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/ngParty/webpack-super-dev-server#readme",
   "peerDependencies": {
-    "webpack": "1.x",
+    "webpack": "1.13.1",
     "webpack-dev-server": "1.x"
   },
   "dependencies": {

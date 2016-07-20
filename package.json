@@ -4,7 +4,7 @@
   "description": "Webpack server with Mock and Proxy support",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests :D\" && exit 0"
   },
   "repository": {
     "type": "git",

@@ -31,14 +31,14 @@ function SuperServer( options ) {
 
   const contentBase = ( options.contentBase || 'app' );
 
-  var server = new WebpackDevServer( compiler, {
+  var server = new WebpackDevServer( compiler, Object.assign( webpackConfig.devServer, {
     contentBase: contentBase,
     proxy: proxySetup,
     hot: true,
     quiet: false,
     noInfo: false,
     stats: { colors: true }
-  } );
+  } ) );
 
   // Setup mocks if defined
   if ( options.mockConfig ) {

@@ -26,11 +26,10 @@
   },
   "homepage": "https://github.com/ngParty/webpack-super-dev-server#readme",
   "peerDependencies": {
-    "webpack": "1.x",
-    "webpack-dev-server": "1.x"
+    "webpack": "2.x",
+    "webpack-dev-server": "2.x"
   },
   "dependencies": {
-    "lodash": "4.13.1",
-    "yargs": "4.8.1"
+    "yargs": "6.2.0"
   }
 }

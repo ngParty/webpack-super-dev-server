@@ -3,9 +3,6 @@ const fs = require( 'fs' );
 const path = require( 'path' );
 const argv = require( 'yargs' );
 
-// @TODO remove lodash dependecy
-const _ = require( 'lodash' );
-
 const WebpackDevServer = require( 'webpack-dev-server' );
 const webpack = require( 'webpack' );
 
@@ -45,9 +42,10 @@ function SuperServer( options ) {
 
     console.log( 'Mocking following routes' );
 
-    if ( _.isArray( options.mockConfig ) ) {
+    if ( Array.isArray( options.mockConfig ) ) {
 
-      _.each( options.mockConfig, function _iterateMultipleMocks( mockFile ) {
+      // iterateMultipleMocks
+      options.mockConfig.forEach( ( mockFile ) => {
 
         _buildMockRoutes( mockFile, server.app );
 
@@ -100,16 +98,19 @@ function SuperServer( options ) {
    * @param {Object} app server instance
    */
   function _buildMockRoutes( mockFilePath, app ) {
-
+  
     const rootPath = path.dirname( mockFilePath );
 
     var mock = require( cwd + '/' + mockFilePath );
 
-    _.each( mock, function iterateMethods( methods, requestRoute ) {
+    // iterateMethods
+    mock.forEach( ( methods, requestRoute ) => {
 
-      _.each( methods, function iterateRoutePaths( states, requestMethod ) {
+      // iterateRoutePaths
+      methods.forEach( ( states, requestMethod ) => {
 
-        _.each( states, function iterateStates( responseContentFileName, responseState ) {
+        // iterateStates
+        states.forEach( ( responseContentFileName, responseState ) => {
 
           const responseContentFilePath = path.join( rootPath, responseContentFileName );
 

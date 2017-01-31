@@ -27,7 +27,7 @@
   "homepage": "https://github.com/ngParty/webpack-super-dev-server#readme",
   "peerDependencies": {
     "webpack": "^1.1.0 || ^2 || ^2.1.0-beta",
-    "webpack-dev-server": "^1.1.0 || ^2 || ^2.1.0-beta"
+    "webpack-dev-server": "^1.16.3"
   },
   "dependencies": {
     "yargs": "6.2.0"
